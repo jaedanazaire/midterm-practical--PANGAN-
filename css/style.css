@@ -1,0 +1,549 @@
+/* =========================================================
+   REFINED — CSS DESIGN SYSTEM
+   Created by: Jaeda Nazaire Pangan
+   ========================================================= */
+
+
+/* =========================================================
+   1. DESIGN TOKENS
+   ========================================================= */
+
+:root {
+
+    /* ---------- Colour Roles ---------- */
+
+    --color-primary: #252525;
+    --color-primary-hover: #403a32;
+
+    --color-secondary: #8b7355;
+    --color-secondary-hover: #6f5a42;
+
+    --color-background: #f8f6f2;
+    --color-surface: #ffffff;
+    --color-surface-alt: #eeebe5;
+
+    --color-text: #252525;
+    --color-text-muted: #555555;
+    --color-text-light: #ffffff;
+
+    --color-border: #c9c3ba;
+    --color-focus: #6f5a42;
+
+
+    /* ---------- Spacing Scale ---------- */
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --space-8: 4rem;
+    --space-9: 5rem;
+
+
+    /* ---------- Type Scale ---------- */
+
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 2rem;
+    --text-3xl: 3rem;
+
+
+    /* ---------- Layout ---------- */
+
+    --content-width: 1100px;
+    --reading-width: 700px;
+
+    /* ---------- Effects ---------- */
+
+    --radius: 2px;
+
+    --shadow-sm:
+        0 4px 15px rgba(0, 0, 0, 0.08);
+
+    --transition:
+        0.25s ease;
+}
+
+
+/* =========================================================
+   2. RESET / BASE STYLES
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: var(--text-base);
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+/* =========================================================
+   3. TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    letter-spacing: 0.2em;
+}
+
+h2 {
+    font-size: var(--text-2xl);
+    font-weight: 400;
+}
+
+h3 {
+    font-size: var(--text-xl);
+    font-weight: 400;
+}
+
+p {
+    color: var(--color-text);
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+
+/* =========================================================
+   4. HEADER
+   ========================================================= */
+
+header {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: var(--space-7) var(--space-5);
+    text-align: center;
+}
+
+header p {
+    color: #e2ddd5;
+    margin-top: var(--space-2);
+}
+
+
+/* =========================================================
+   5. NAVIGATION
+   ========================================================= */
+
+nav {
+    margin-top: var(--space-6);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-7);
+    list-style: none;
+}
+
+nav a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    letter-spacing: 0.05em;
+    padding: var(--space-2) var(--space-3);
+    transition:
+        color var(--transition),
+        background-color var(--transition);
+}
+
+nav a:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+nav a:focus {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   6. MAIN LAYOUT
+   ========================================================= */
+
+main {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+section {
+    padding: var(--space-9) var(--space-5);
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: var(--space-7);
+}
+
+
+/* =========================================================
+   7. REUSABLE COMPONENT — PRODUCT CARD
+   ========================================================= */
+
+#collection {
+    max-width: none;
+    background-color: var(--color-surface-alt);
+}
+
+#collection article {
+    display: inline-block;
+    vertical-align: top;
+
+    width: 31.5%;
+    margin-right: 2%;
+
+    background-color: var(--color-surface);
+    padding-bottom: var(--space-5);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+#collection article:last-child {
+    margin-right: 0;
+}
+
+#collection article:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+#collection article:focus-within {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 4px;
+}
+
+#collection article img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    margin-bottom: var(--space-5);
+}
+
+#collection article h3 {
+    text-align: center;
+    margin-bottom: var(--space-3);
+}
+
+#collection article p {
+    padding: 0 var(--space-5);
+    color: var(--color-text-muted);
+}
+
+#collection article p:last-child {
+    color: var(--color-text);
+    font-weight: bold;
+    margin-top: var(--space-3);
+}
+
+
+/* =========================================================
+   8. ABOUT / HERO SECTION
+   ========================================================= */
+
+#home > section:first-child {
+    text-align: center;
+}
+
+#home > section:first-child img {
+    width: 100%;
+    max-width: 850px;
+    height: 450px;
+    object-fit: cover;
+    margin: 0 auto var(--space-6);
+}
+
+#home > section:first-child p {
+    max-width: var(--reading-width);
+    margin: 0 auto;
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+}
+
+
+/* =========================================================
+   9. REUSABLE COMPONENT — FORM CONTROLS
+   ========================================================= */
+
+#contact {
+    max-width: none;
+    background-color: var(--color-surface-alt);
+}
+
+#contact > p {
+    max-width: var(--reading-width);
+    margin: 0 auto var(--space-7);
+    text-align: center;
+    color: var(--color-text-muted);
+}
+
+form {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: var(--space-7);
+
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+}
+
+form div {
+    margin-bottom: var(--space-5);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--space-2);
+
+    color: var(--color-text);
+    font-size: var(--text-sm);
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: var(--space-3);
+
+    background-color: #faf9f7;
+    color: var(--color-text);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: var(--color-secondary);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid rgba(111, 90, 66, 0.35);
+    outline-offset: 2px;
+    border-color: var(--color-focus);
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+
+/* =========================================================
+   10. BUTTON / INTERACTIVE CONTROL
+   ========================================================= */
+
+button {
+    width: 100%;
+    padding: var(--space-4);
+
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius);
+
+    cursor: pointer;
+
+    font-size: var(--text-sm);
+    font-weight: bold;
+    letter-spacing: 0.05em;
+
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        color var(--transition);
+}
+
+button:hover {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+button:focus {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   11. SIZE GUIDE TABLE
+   ========================================================= */
+
+#size-guide {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-surface);
+}
+
+caption {
+    margin-bottom: var(--space-3);
+    text-align: left;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+}
+
+th,
+td {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    text-align: center;
+}
+
+thead th {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-weight: bold;
+}
+
+tbody th {
+    background-color: var(--color-surface-alt);
+    color: var(--color-text);
+}
+
+tbody tr:hover {
+    background-color: #f0ece6;
+}
+
+
+/* =========================================================
+   12. FOOTER
+   ========================================================= */
+
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: var(--space-6) var(--space-5);
+    text-align: center;
+}
+
+footer p {
+    color: #e2ddd5;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2);
+}
+
+
+/* =========================================================
+   13. RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    :root {
+        --text-3xl: 2.3rem;
+        --text-2xl: 1.8rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-2);
+    }
+
+    section {
+        padding: var(--space-8) var(--space-4);
+    }
+
+    #home > section:first-child img {
+        height: 300px;
+    }
+
+    #collection article {
+        display: block;
+        width: 100%;
+        margin: 0 0 var(--space-6);
+    }
+
+    #collection article:last-child {
+        margin-bottom: 0;
+    }
+
+    form {
+        padding: var(--space-5);
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    header {
+        padding: var(--space-6) var(--space-4);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    section h2 {
+        font-size: 1.7rem;
+    }
+
+    #home > section:first-child img {
+        height: 230px;
+    }
+
+    #collection article img {
+        height: 280px;
+    }
+
+    th,
+    td {
+        padding: var(--space-2);
+        font-size: var(--text-sm);
+    }
+}
